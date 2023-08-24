@@ -1,0 +1,51 @@
+body{
+    margin: 0;
+}
+.container{
+    height: 100vh;
+    display: grid;
+    background: orangered;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(3,1fr);
+    grid-template-areas: 
+    "h h h h h h h h h h h h"
+    "left left left c c c c c c right right right"
+    '. f f f f f f f f f f .';
+}
+
+.header{
+    background: salmon;
+    grid-area: h;
+}
+
+/* .menu{
+    background: goldenrod;
+    grid-area: m;
+} */
+
+.left{
+    background: yellow;
+    grid-area: left;
+}
+
+.content{
+    background: slateblue;
+    grid-area: c;
+}
+
+.right{
+    background:green;
+    grid-area: right;
+}
+
+.footer{
+    background: orchid;
+    grid-area: f;
+}
+
+.container div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}

@@ -1,0 +1,39 @@
+.card{
+    width: 70%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    border: 10px solid #f0f0f0;
+    margin: 0 auto;
+}
+
+.card img{
+    width: 300px;
+}
+
+.card-body{
+    font-size: 1.3rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 150%;
+    
+}
+
+.card-footer{
+    display: flex;
+    flex-direction: row;                                                                                                                                                                                                                                            
+    align-items: baseline;
+    gap: 10px;
+}
+.card-btn{
+    text-decoration: none;
+    padding: 1.2em  1.5em;
+    background: slateblue;
+    color: whitesmoke;
+    font-size: 1.25rem;
+}
+
+@media (min-width:670px){
+    .card{
+        flex-direction: row;
+    }
+}

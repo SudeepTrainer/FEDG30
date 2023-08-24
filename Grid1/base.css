@@ -1,0 +1,20 @@
+.container{
+    display: grid;
+    border: 3px solid slateblue;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    /* grid-template-columns: repeat(3,1fr); */
+    /* grid-template-rows: 60px 60px; */
+    /* grid-template-rows: repeat(2,60px); */
+    grid-template: repeat(2,60px)/repeat(3,1fr);
+    /* column-gap: 10px;
+    row-gap: 10px; */
+    gap:10px;
+}
+
+.container div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: silver;
+    border: 2px solid slategray;
+}
