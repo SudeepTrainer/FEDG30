@@ -5,37 +5,42 @@
 
 let elonObject = {
     fullName: 'Elon Musk',
-    age:45,
-    country:"SA",
-    skills:["Entreprenuer","Founder","Developer"]
+    age: 45,
+    country: "SA",
+    skills: ["Entreprenuer", "Founder", "Developer"]
 }
 
 console.log(elonObject.country);
 console.log(elonObject.skills[1]);
 
 // {products:[{},{},{}]}
-let shoppingCart = {products:[{name:"iPhone",brand:"Apple",price:"$12345",
-                    category:"Phones"},
-                    {name:"iPad",brand:"Apple",price:"$34424",
-                    category:"Phones"}]
-                    }
+let shoppingCart = {
+    products: [{
+        name: "iPhone", brand: "Apple", price: "$12345",
+        category: "Phones"
+    },
+    {
+        name: "iPad", brand: "Apple", price: "$34424",
+        category: "Phones"
+    }]
+}
 
 let name1 = "Mark";
 let name2 = name1;
 let name3 = name2;
 name3 = "Elon";
-console.log(name3); 
+console.log(name3);
 console.log(name2);
 
 // Object are reference types
 let product1 = {
-    name:"Laptop",
-    price:325423
+    name: "Laptop",
+    price: 325423
 }
 
-let product2 ={
-    name:"Laptop",
-    price:325423
+let product2 = {
+    name: "Laptop",
+    price: 325423
 }
 
 console.log(product1 === product2);
@@ -54,7 +59,7 @@ console.log(product2);
 // console.log(product4);
 // console.log(product2);
 
-let product4 = {...product2};
+let product4 = { ...product2 };
 console.log(product4);
 console.log(product2);
 
@@ -62,16 +67,16 @@ product4.price = 435;
 console.log(product4);
 console.log(product2);
 
-let product ={
-    brand:"Apple",
-    price:355,
+let product = {
+    brand: "Apple",
+    price: 355,
     // getDetails:function getDetails(){
     //     console.log(`Brand is ${this.brand}`);
     // }
     // getDetails:function (){
     //     console.log(`Brand is ${this.brand}`);
     // }
-    getDetails(){
+    getDetails() {
         console.log(`Brand is ${this.brand}`);
     }
 }
@@ -79,13 +84,82 @@ let product ={
 product.getDetails();
 
 let person = {
-    firstName:"Mark",
-    lastName:"Zuck",
-    getFullName(){
-        return `${this.firstName} ${this.lastName}`;
-    },
-    greet(){
-        return `Hi, this is ${this.firstName}`;
+    firstName: "Mark",
+    lastName: "Zuck",
+    age: 23,
+    greet() {
+        console.log(`Hi, this is ${this.firstName}`);
     }
 }
-console.log(person.getFullName());
+
+let personMethods = {
+    greet: function () {
+        console.log(`Hi, this is ${this.firstName}`);
+    },
+    getFullName: function () {
+        console.log(`FirstName: ${this.firstName} Lastname: ${this.lastName}`);
+    }
+}
+
+// function instantiation
+function Person(fname, lname, age) {
+    let person = {};
+    person["firstName"] = fname;
+    person.lastName = lname;
+    person.age = age;
+    // person.greet = function () {
+    //     console.log(`Hi, this is ${this.firstName}`);
+    // }
+    person.greet = personMethods.greet;
+    // person.getFullName = function () {
+    //     console.log(`FirstName: ${this.firstName} Lastname: ${this.lastName}`);
+    // }
+    person.getFullName = personMethods.getFullName;
+    return person;
+}
+
+let elon = Person("Elon", "Musk", 24);
+console.log(elon.firstName);
+elon.greet();
+
+let bill = Person("Bill", "Gates", 32);
+bill.getFullName();
+
+// Object.create
+let parent = {}
+parent.country = "India";
+
+let child = Object.create(parent);
+child.name = "Mark";
+
+console.log(child.name);
+console.log(child.country);
+console.log(parent.name);
+
+let animalPrototype = {
+    makeNoise: function () {
+        console.log(`${this.name} making noise`);
+    }
+}
+
+let animal = Object.create(animalPrototype);
+animal.name = "Lion";
+
+animal.makeNoise();
+
+
+console.log('${2+3}');
+console.log(`${2 + 3}`);
+
+let a = {
+    name: "Mark"
+}
+let b = {
+    name: "Mark"
+}
+console.log(a === b);
+
+(a, b) => {
+    return a + b;
+}
+console.log(2, 3);
