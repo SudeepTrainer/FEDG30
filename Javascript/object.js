@@ -102,28 +102,28 @@ let personMethods = {
 }
 
 // function instantiation
-function Person(fname, lname, age) {
-    let person = {};
-    person["firstName"] = fname;
-    person.lastName = lname;
-    person.age = age;
-    // person.greet = function () {
-    //     console.log(`Hi, this is ${this.firstName}`);
-    // }
-    person.greet = personMethods.greet;
-    // person.getFullName = function () {
-    //     console.log(`FirstName: ${this.firstName} Lastname: ${this.lastName}`);
-    // }
-    person.getFullName = personMethods.getFullName;
-    return person;
-}
+// function Person(fname, lname, age) {
+//     let person = {};
+//     person["firstName"] = fname;
+//     person.lastName = lname;
+//     person.age = age;
+//     // person.greet = function () {
+//     //     console.log(`Hi, this is ${this.firstName}`);
+//     // }
+//     person.greet = personMethods.greet;
+//     // person.getFullName = function () {
+//     //     console.log(`FirstName: ${this.firstName} Lastname: ${this.lastName}`);
+//     // }
+//     person.getFullName = personMethods.getFullName;
+//     return person;
+// }
 
-let elon = Person("Elon", "Musk", 24);
-console.log(elon.firstName);
-elon.greet();
+// let elon = Person("Elon", "Musk", 24);
+// console.log(elon.firstName);
+// elon.greet();
 
-let bill = Person("Bill", "Gates", 32);
-bill.getFullName();
+// let bill = Person("Bill", "Gates", 32);
+// bill.getFullName();
 
 // Object.create
 let parent = {}
@@ -147,19 +147,47 @@ animal.name = "Lion";
 
 animal.makeNoise();
 
+let anArray = [];
+let anotherArray = new Array();
 
-console.log('${2+3}');
-console.log(`${2 + 3}`);
+let aStr = "";
+let anotherString = new String("");
 
-let a = {
-    name: "Mark"
+function Person(fname, lname, age) {
+    // let person = Object.create(Person.prototype);
+    this.firstName = fname;
+    this.lastName = lname;
+    this.age = age;
+    // return person;
 }
-let b = {
-    name: "Mark"
+Person.prototype.greet = function () {
+    console.log(`Hi, this is ${this.firstName}`);
 }
-console.log(a === b);
+Person.prototype.getFullName = function () {
+    console.log(`FirstName: ${this.firstName} Lastname: ${this.lastName}`);
+}
+let elon = new Person("Elon", "Musk", 24);
+console.log(elon.firstName);
+elon.greet();
+let bill = new Person("Bill", "Gates", 32);
+bill.getFullName();
 
-(a, b) => {
-    return a + b;
+class Person1 {
+    constructor(fname, lname, age) {
+        this.firstName = fname;
+        this.lastName = lname;
+        this.age = age;
+    }
+    greet() {
+        console.log(`Hi, this is ${this.firstName}`);
+    }
+    getFullName() {
+        console.log(`FirstName: ${this.firstName} Lastname: ${this.lastName}`);
+    }
 }
-console.log(2, 3);
+let person1 = new Person1("Mark", "Zuck", 31);
+console.log(person1);
+person1.greet();
+
+// create a type Account with properties like balance, accountHolderName, 
+// accountNumber. Add methods like withdraw, deposit,etc.
