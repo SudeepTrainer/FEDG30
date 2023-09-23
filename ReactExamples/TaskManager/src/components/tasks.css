@@ -1,0 +1,11 @@
+body {
+    margin: 40px;
+    background: cornsilk;
+    font-size: 2rem;
+}
+
+button {
+    font-size: 1.5rem;
+    background: palegoldenrod;
+    padding: 1em 1.5em;
+}
