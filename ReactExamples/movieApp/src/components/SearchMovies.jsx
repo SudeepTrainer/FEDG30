@@ -1,4 +1,7 @@
 import { useState } from "react";
+import MovieCard from "./MovieCard";
+import ActionAreaCard from "./MaterialCard";
+import { Grid } from "@mui/material";
 
 export default function SearchMovies(){
 
@@ -29,14 +32,11 @@ export default function SearchMovies(){
                     />
                 <button className="button" type="submit">Search</button>
             </form>
-            <div>
+            <Grid container columnGap={4}>
                 {movies.filter(movie=>movie.poster_path!=null).map(movie => 
-                    <div key={movie.id}>
-                        <h3 >{movie.title}</h3>
-                        <img src ={`https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`}/>
-                    </div>
+                    <ActionAreaCard data={movie} key={movie.id}/>
                 )}
-            </div>
+            </Grid>
         </>
     )
 }
